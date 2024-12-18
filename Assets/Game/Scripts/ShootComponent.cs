@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 
 public class ShootComponent : MonoBehaviour
@@ -8,6 +9,9 @@ public class ShootComponent : MonoBehaviour
     public int Damage;
 
     public LayerMask LayerMask;
+
+    public AudioSource AudioSource;
+    public AudioClip ShootAudioClip;
     
     public void Shoot()
     {
@@ -23,5 +27,7 @@ public class ShootComponent : MonoBehaviour
                 healthComponent.TakeDamage(Damage);
             }
         }
+        
+        AudioSource.PlayOneShot(ShootAudioClip);
     }
 }

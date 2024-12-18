@@ -5,6 +5,9 @@ public class PlayerAnimatorController : MonoBehaviour
     public Animator Animator;
     public ShootComponent ShootComponent;
 
+    public AudioSource AudioSource;
+    public AudioClip StepAudioClip;
+
     public void ActivateRunAnimation()
     {
         Animator.SetBool("IsMoving", true);
@@ -23,5 +26,10 @@ public class PlayerAnimatorController : MonoBehaviour
     public void OnShootEvent()
     {
         ShootComponent.Shoot();
+    }
+
+    public void OnStepEvent()
+    {
+        AudioSource.PlayOneShot(StepAudioClip);
     }
 }
